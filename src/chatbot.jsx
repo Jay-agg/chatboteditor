@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { HexColorPicker } from "react-colorful";
+import { Send } from "lucide-react";
 
 const LeftPanel = ({ settings, updateSettings }) => {
   const [showColorPicker, setShowColorPicker] = useState(false);
@@ -124,7 +125,7 @@ const RightPanel = ({ settings }) => {
               className="flex-grow px-5 py-3 rounded-full border-2 border-gray-200 focus:border-blue-400 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-200 text-gray-800 placeholder-gray-400"
             />
             <button className="ml-4 bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition duration-200 shadow-md">
-              Send
+              <Send />
             </button>
           </div>
         </div>
