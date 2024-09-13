@@ -7,7 +7,7 @@ const LeftPanel = ({ settings, updateSettings }) => {
   const [showColorPicker, setShowColorPicker] = useState(false);
 
   return (
-    <div className="w-1/2 p-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-l-3xl">
+    <div className="w-full md:w-1/2 p-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-t-3xl md:rounded-l-3xl md:rounded-t-none">
       <h2 className="text-3xl font-bold mb-8 text-gray-800">
         Chatbot Settings
       </h2>
@@ -82,7 +82,7 @@ const InputField = ({ id, label, value, onChange }) => (
 
 const RightPanel = ({ settings }) => {
   return (
-    <div className="w-1/2 p-8 bg-gray-50 flex items-center justify-center rounded-r-3xl">
+    <div className="w-full md:w-1/2 p-8 bg-gray-50 flex items-center justify-center rounded-b-3xl md:rounded-r-3xl md:rounded-b-none">
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -147,7 +147,7 @@ const ChatbotEditor = () => {
   };
 
   return (
-    <div className="flex h-screen font-sans ">
+    <div className="flex flex-col md:flex-row h-screen font-sans">
       <LeftPanel settings={settings} updateSettings={updateSettings} />
       <RightPanel settings={settings} />
     </div>
