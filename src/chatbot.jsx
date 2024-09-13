@@ -7,11 +7,11 @@ const LeftPanel = ({ settings, updateSettings }) => {
   const [showColorPicker, setShowColorPicker] = useState(false);
 
   return (
-    <div className="w-full md:w-1/2 p-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-t-3xl md:rounded-l-3xl md:rounded-t-none">
-      <h2 className="text-3xl font-bold mb-8 text-gray-800">
+    <div className="w-full md:w-1/2 p-4 md:p-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-t-3xl md:rounded-l-3xl md:rounded-t-none">
+      <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-8 text-gray-800">
         Chatbot Settings
       </h2>
-      <div className="space-y-6">
+      <div className="space-y-4 md:space-y-6">
         <InputField
           id="title"
           label="Chatbot Title"
@@ -39,7 +39,7 @@ const LeftPanel = ({ settings, updateSettings }) => {
           </label>
           <div className="flex items-center space-x-4">
             <div
-              className="w-10 h-10 rounded-full shadow-inner cursor-pointer"
+              className="w-8 h-8 md:w-10 md:h-10 rounded-full shadow-inner cursor-pointer"
               style={{ backgroundColor: settings.userBubbleColor }}
               onClick={() => setShowColorPicker(!showColorPicker)}
             ></div>
@@ -74,7 +74,7 @@ const InputField = ({ id, label, value, onChange }) => (
       type="text"
       value={value}
       onChange={onChange}
-      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 shadow-sm focus:border-blue-400 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-200 text-gray-800 placeholder-gray-400"
+      className="w-full px-3 py-2 md:px-4 md:py-3 rounded-xl border-2 border-gray-200 shadow-sm focus:border-blue-400 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-200 text-gray-800 placeholder-gray-400"
       placeholder={`Enter ${label.toLowerCase()}...`}
     />
   </div>
@@ -82,24 +82,26 @@ const InputField = ({ id, label, value, onChange }) => (
 
 const RightPanel = ({ settings }) => {
   return (
-    <div className="w-full md:w-1/2 p-8 bg-gray-50 flex items-center justify-center rounded-b-3xl md:rounded-r-3xl md:rounded-b-none">
+    <div className="w-full md:w-1/2 p-4 md:p-8 bg-gray-50 flex items-center justify-center rounded-b-3xl md:rounded-r-3xl md:rounded-b-none">
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.3 }}
         className="w-full max-w-md bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100"
       >
-        <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-6">
-          <h2 className="text-white text-2xl font-bold">{settings.title}</h2>
+        <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-4 md:p-6">
+          <h2 className="text-white text-xl md:text-2xl font-bold">
+            {settings.title}
+          </h2>
         </div>
-        <div className="h-96 overflow-y-auto p-6 space-y-4">
+        <div className="h-72 md:h-96 overflow-y-auto p-4 md:p-6 space-y-4">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
             className="flex justify-start"
           >
-            <div className="bg-gray-100 p-4 rounded-2xl max-w-[75%] shadow-sm">
+            <div className="bg-gray-100 p-3 md:p-4 rounded-2xl max-w-[75%] shadow-sm">
               {settings.initialMessage}
             </div>
           </motion.div>
@@ -110,21 +112,21 @@ const RightPanel = ({ settings }) => {
             className="flex justify-end"
           >
             <div
-              className="p-4 rounded-2xl max-w-[75%] text-white shadow-sm"
+              className="p-3 md:p-4 rounded-2xl max-w-[75%] text-white shadow-sm"
               style={{ backgroundColor: settings.userBubbleColor }}
             >
               Sample user message
             </div>
           </motion.div>
         </div>
-        <div className="p-6 border-t border-gray-200 bg-gray-50">
+        <div className="p-4 md:p-6 border-t border-gray-200 bg-gray-50">
           <div className="flex items-center">
             <input
               type="text"
               placeholder={settings.placeholder}
-              className="flex-grow px-5 py-3 rounded-full border-2 border-gray-200 focus:border-blue-400 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-200 text-gray-800 placeholder-gray-400"
+              className="flex-grow px-4 py-2 md:px-5 md:py-3 rounded-full border-2 border-gray-200 focus:border-blue-400 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition duration-200 text-gray-800 placeholder-gray-400"
             />
-            <button className="ml-4 bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition duration-200 shadow-md">
+            <button className="ml-2 md:ml-4 bg-blue-500 text-white px-4 py-2 md:px-6 md:py-3 rounded-full hover:bg-blue-600 transition duration-200 shadow-md">
               <Send />
             </button>
           </div>
